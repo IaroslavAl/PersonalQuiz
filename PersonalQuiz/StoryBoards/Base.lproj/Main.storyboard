@@ -327,7 +327,7 @@
                     <navigationItem key="navigationItem" title="Результат" id="XOk-4d-Efn">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="L4E-Ml-njf">
                             <connections>
-                                <action selector="doneButtonPressed:" destination="Cwn-kA-anl" id="bbX-HL-5FH"/>
+                                <action selector="doneButtonPressed" destination="Cwn-kA-anl" id="I8G-ma-hRQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

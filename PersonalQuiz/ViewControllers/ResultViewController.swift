@@ -24,7 +24,7 @@ final class ResultViewController: UIViewController {
         navigationItem.hidesBackButton = true
     }
     
-    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func doneButtonPressed() {
         dismiss(animated: true)
     }
     
