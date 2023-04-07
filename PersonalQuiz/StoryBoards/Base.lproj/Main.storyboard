@@ -261,13 +261,7 @@
                             <constraint firstItem="9Xk-Rj-nls" firstAttribute="centerY" secondItem="c2c-Dt-sHY" secondAttribute="centerY" id="woc-3A-XGU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Вопрос №" id="7GM-fN-yED">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="mUj-0M-FIp">
-                            <connections>
-                                <segue destination="Cwn-kA-anl" kind="show" id="nyE-Kz-U9e"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Вопрос №" id="7GM-fN-yED"/>
                     <connections>
                         <outlet property="multipleStackView" destination="rdQ-qd-gwv" id="bCa-Rn-YtW"/>
                         <outlet property="questionLabel" destination="wAw-ql-goT" id="sMI-Nq-O93"/>
@@ -313,7 +307,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы осьминог" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67V-8q-zMb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы осьминог" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67V-8q-zMb">
                                         <rect key="frame" x="92" y="76" width="104" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -337,6 +331,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="animalNameLabel" destination="67V-8q-zMb" id="A9D-Xs-20c"/>
+                        <outlet property="smileLabel" destination="HE5-qm-HF5" id="g2n-Tp-s9R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0e-ae-jod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,9 +359,6 @@
             <point key="canvasLocation" x="866" y="3"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ThO-WB-9OI"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
