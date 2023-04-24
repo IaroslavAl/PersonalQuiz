@@ -332,7 +332,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="animalNameLabel" destination="67V-8q-zMb" id="A9D-Xs-20c"/>
+                        <outlet property="descriptionLabel" destination="67V-8q-zMb" id="A9D-Xs-20c"/>
                         <outlet property="smileLabel" destination="HE5-qm-HF5" id="g2n-Tp-s9R"/>
                     </connections>
                 </viewController>

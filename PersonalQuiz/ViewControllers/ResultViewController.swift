@@ -10,45 +10,39 @@ import UIKit
 final class ResultViewController: UIViewController {
     
     @IBOutlet var smileLabel: UILabel!
-    @IBOutlet var animalNameLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     
-    var answersChosen: [Answer] = []
-    
-    private var animalCount: [Animal: Int] = [:]
+    var answers: [Answer]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        smileLabel.text = identifyWhichAnimal().0
-        animalNameLabel.text = identifyWhichAnimal().1
-        
         navigationItem.hidesBackButton = true
+        updateResult()
     }
     
     @IBAction func doneButtonPressed() {
         dismiss(animated: true)
     }
+}
+
+// MARK: - Private Methods
+extension ResultViewController {
+    private func updateResult() {
+        var frequencyOfAnimals: [Animal: Int] = [:]
+        let animals = answers.map { $0.animal }
+        
+        for animal in animals {
+            frequencyOfAnimals[animal, default: 0] += 1
+        }
+        
+        let sortedFrequentOfAnimals = frequencyOfAnimals.sorted { $0.value > $1.value }
+        guard let mostFrequentAnimal = sortedFrequentOfAnimals.first?.key else { return }
+        
+        updateUI(with: mostFrequentAnimal)
+    }
     
-    private func identifyWhichAnimal() -> (String, String) {
-        let animal: Animal
-        let animalLabel: (String, String)
-        
-        for answer in answersChosen {
-            animalCount[answer.animal, default: 0] += 1
-        }
-        
-        animal = animalCount.filter { $0.value == animalCount.values.max() }.keys.first!
-        
-        switch animal {
-        case .dog:
-            animalLabel = ("Вы - 🐶!", animal.definition)
-        case .cat:
-            animalLabel = ("Вы - 🐱!", animal.definition)
-        case .rabbit:
-            animalLabel = ("Вы - 🐰!", animal.definition)
-        case .turtle:
-            animalLabel = ("Вы - 🐢!", animal.definition)
-        }
-        
-        return animalLabel
+    private func updateUI(with animal: Animal) {
+        smileLabel.text = "Вы - \(animal.rawValue)!"
+        descriptionLabel.text = animal.definition
     }
 }

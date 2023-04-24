@@ -9,7 +9,7 @@ import UIKit
 
 final class QuestionViewController: UIViewController {
     
-    // MARK: - IBOutlets
+    // MARK: - IB Outlets
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var questionProgressView: UIProgressView!
     
@@ -22,7 +22,13 @@ final class QuestionViewController: UIViewController {
     
     @IBOutlet var rangedStackView: UIStackView!
     @IBOutlet var rangedLabels: [UILabel]!
-    @IBOutlet var rangedSlider: UISlider!
+    @IBOutlet var rangedSlider: UISlider! {
+        didSet {
+            let answerCount = Float(currentAnswers.count - 1)
+            rangedSlider.maximumValue = answerCount
+            rangedSlider.value = answerCount / 2
+        }
+    }
     
     // MARK: - Private properties
     private var questionIndex = 0
@@ -36,17 +42,12 @@ final class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        let answerCount = Float(currentAnswers.count - 1)
-        rangedSlider.maximumValue = answerCount
-        rangedSlider.value = answerCount / 2
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let resultVC = segue.destination as? ResultViewController else {
-            return
-        }
-        resultVC.answersChosen = answersChosen
+        guard let resultVC = segue.destination as? ResultViewController else { return }
+        resultVC.answers = answersChosen
     }
     
     // MARK: - IB Actions
